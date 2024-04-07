@@ -6,13 +6,13 @@ from flask_login import LoginManager
 
 db = SQLAlchemy()
 
-DB_USERNAME = "DESKTOP-1HCAB3I"
-DB_DATABASE = "BrainBuster"
-
-# DB_USERNAME = "raspberry"
-# DB_PASSWORD = "123321123"
-# DB_SERVER = " 192.168.10.234,1433"
+# DB_USERNAME = "DESKTOP-1HCAB3I"
 # DB_DATABASE = "BrainBuster"
+
+DB_USERNAME = "raspberry"
+DB_PASSWORD = "123321123"
+DB_SERVER = " 192.168.178.79,1433"
+DB_DATABASE = "BrainBuster"
 
 
 
@@ -20,8 +20,8 @@ DB_DATABASE = "BrainBuster"
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'hjshjhdjah kjshkjdhjs'
-    app.config['SQLALCHEMY_DATABASE_URI'] = f"mssql+pyodbc://{DB_USERNAME}/{DB_DATABASE}?trusted_connection=yes&driver=ODBC+Driver+17+for+SQL+Server"
-    #app.config['SQLALCHEMY_DATABASE_URI'] = f"mssql+pyodbc://{DB_USERNAME}:{DB_PASSWORD}@{DB_SERVER}/{DB_DATABASE}?driver=ODBC+Driver+17+for+SQL+Server"
+    #app.config['SQLALCHEMY_DATABASE_URI'] = f"mssql+pyodbc://{DB_USERNAME}/{DB_DATABASE}?trusted_connection=yes&driver=ODBC+Driver+17+for+SQL+Server"
+    app.config['SQLALCHEMY_DATABASE_URI'] = f"mssql+pyodbc://{DB_USERNAME}:{DB_PASSWORD}@{DB_SERVER}/{DB_DATABASE}?driver=ODBC+Driver+17+for+SQL+Server"
 
     db.init_app(app)
 
